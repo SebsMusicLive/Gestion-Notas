@@ -3,6 +3,7 @@
 include('../app/config.php');
 include('../admin/layout/parte1.php');
 
+
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

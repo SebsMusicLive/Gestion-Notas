@@ -27,4 +27,5 @@ $diaActual = date('d');
 $mesActual = date('m');
 $anoActual = date('Y');
 
+$estado_de_registro = 1;
 ?>

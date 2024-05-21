@@ -15,7 +15,7 @@ VALUES ('Johan López', 'ADMINISTRADOR','admin@admin.com','12345678','2024-05-16
 
 CREATE TABLE roles (
     id_rol INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nombre_rol VARCHAR(255) NOT NULL,
+    nombre_rol VARCHAR(255) NOT NULL UNIQUE KEY,
 
     fyh_creacion DATE NULL,
     fyh_actualizacion DATE NULL,
