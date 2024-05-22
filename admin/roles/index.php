@@ -32,12 +32,18 @@ include ('../../app/controllers/roles/listado_de_roles.php');
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <table class="table table-striped table-bordered table-hover table-sm">
+              <table class="table table-striped table-bordered table-hover table-sm" id="example1">
                 <thead>
                   <tr>
-                    <th><center>Nro</center></th>
-                    <th><center>Nombre del rol</center></th>
-                    <th><center>Acciones</center></th>
+                    <th>
+                      <center>Nro</center>
+                    </th>
+                    <th>
+                      <center>Nombre del rol</center>
+                    </th>
+                    <th>
+                      <center>Acciones</center>
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -52,7 +58,7 @@ include ('../../app/controllers/roles/listado_de_roles.php');
                       <td style="text-align:center"><?= $rol['nombre_rol']; ?></td>
                       <td style="text-align:center">
                         <div class="btn-group" role="group" aria-label="Basic example">
-                          <button type="button" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></button>
+                          <a type="button" href="show.php?id=<?=$id_rol;?>" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
                           <button type="button" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i></button>
                           <button type="button" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
                         </div>
@@ -81,3 +87,56 @@ include ('../../app/controllers/roles/listado_de_roles.php');
 include ("../../admin/layout/parte2.php");
 include ('../../layout/mensajes.php');
 ?>
+
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "pageLength": 5,
+      "language": {
+        "emptyTable": "No hay información",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Roles",
+        "infoEmpty": "Mostrando 0 a 0 de 0 Roles",
+        "infoFiltered": "(Filtrado de _MAX_ total roles)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ Roles",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Buscador",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+          "firts": "primero",
+          "last": "Ultimo",
+          "next": "Siguiente",
+          "previous": "Anterior"
+        }
+      },
+      "responsive": true, "lengthChange": true, "autoWidth": false,
+      buttons: [{
+        extend: 'collection',
+        text: 'Reportes',
+        orientation: 'landscape',
+        buttons: [{
+          text: 'Copiar',
+          extend: 'copy',
+        }, {
+          extend: 'pdf'
+        }, {
+          extend: 'csv'
+        }, {
+          extend: 'excel'
+        }, {
+          text: 'Imprimir',
+          extend: 'print'
+        }
+        ]
+      },
+      {
+        extend: 'colvis',
+      text: 'Visor de columnas',
+        collectionlayout: 'fixed three-column'
+      }
+      ],
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+  });
+</script>
