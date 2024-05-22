@@ -59,8 +59,10 @@ include ('../../app/controllers/roles/listado_de_roles.php');
                       <td style="text-align:center">
                         <div class="btn-group" role="group" aria-label="Basic example">
                           <a type="button" href="show.php?id=<?=$id_rol;?>" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
-                          <button type="button" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i></button>
+                          <a type="button" href="edit.php?id=<?=$id_rol;?>" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i></a>
+                          <form action="">
                           <button type="button" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
+                          </form>
                         </div>
                       </td>
                     </tr>
