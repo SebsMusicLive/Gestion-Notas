@@ -68,7 +68,7 @@ include ('../../app/controllers/usuarios/listado_de_usuarios.php');
                     <tr>
                       <td style="text-align:center"><?= $contador_usuarios;?></td>
                       <td style="text-align:center"><?= $usuario['nombres']; ?></td>
-                      <td style="text-align:center"><?= $usuario['rol_id']; ?></td>
+                      <td style="text-align:center"><?= $usuario['nombre_rol']; ?></td>
                       <td style="text-align:center"><?= $usuario['email']; ?></td>
                       <td style="text-align:center"><?= $usuario['fyh_creacion']; ?></td>
                       <td style="text-align:center"><?= $usuario['estado']; ?></td>
