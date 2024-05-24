@@ -31,7 +31,7 @@ include ('../app/config.php');
     <center><img src="https://ps.w.org/login-customizer/assets/icon-256x256.png?rev=2455454" width="100px" alt="">
     </center><br><br>
     <div class="login-logo">
-      <h3><b><?= APP_NAME ?></b></h3>
+      <h3><b><?= APP_NAME; ?></b></h3>
     </div>
     <!-- /.login-logo -->
     <div class="card">
