@@ -1,4 +1,5 @@
 <?php
+//password 1-5 encriptada prueba = $2y$10$zSJ99LWaKh32rsWib9z9suDd1yFQBDvyNRaq.XMVkl7x9Szk/mdyi;
 include('../app/config.php');
 
 $email = $_POST['email'];
@@ -17,8 +18,8 @@ foreach($usuarios as $usuario){
     $contador=$contador+1;
 }
 
-
-if(($contador > 0) && (password_verify($password, $password_tabla))){
+$password_correct = password_verify($password, $password_tabla);
+if(($contador > 0) && ($password_correct)){
     echo 'Los datos son correctos';
     session_start();
     $_SESSION['mensaje'] = 'Bienvenido al sistema';
@@ -26,10 +27,12 @@ if(($contador > 0) && (password_verify($password, $password_tabla))){
     $_SESSION['sesion_email'] = $email;
     header('Location:'.APP_URL.'/admin');
 }else{
-    echo 'Los datos son incorrectos';
+    //echo 'Los datos son incorrectos';
     session_start();
     $_SESSION['mensaje'] = 'Los datos introducidos son incorrectos, vuelve a intentarlo';
+    //echo var_export($password_correct);
     header('Location:'.APP_URL.'/login');
+
 }
 
 ?>

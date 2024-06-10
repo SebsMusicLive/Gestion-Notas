@@ -42,7 +42,7 @@ include ('../../app/controllers/usuarios/listado_de_usuarios.php');
                       <center>Nombre del Usuario</center>
                     </th>
                     <th>
-                      <center>Rol ID</center>
+                      <center>Rol</center>
                     </th>
                     <th>
                       <center>Email</center>
@@ -79,13 +79,13 @@ include ('../../app/controllers/usuarios/listado_de_usuarios.php');
                               class="bi bi-eye"></i></a>
                           <a type="button" href="edit.php?id=<?=$id_usuario;?>" class="btn btn-success btn-sm"><i
                               class="bi bi-pencil"></i></a>
-                          <form action="<?=APP_URL;?>/app/controllers/roles/delete.php" onclick="preguntar(event)" method="post" id="miFormulario<?=$id_usuario;?>">
-                            <input type="text" name="id_rol" value="<?=$id_usuario;?>" hidden>
+                          <form action="<?=APP_URL;?>/app/controllers/usuarios/delete.php" onclick="preguntar<?=$id_usuario;?>(event)" method="post" id="miFormulario<?=$id_usuario;?>">
+                            <input type="text" name="id_usuario" value="<?=$id_usuario;?>" hidden>
                             <button type="submit" class="btn btn-danger btn-sm" style="border-radius:0px 5px 5px 0px"><i
                                 class="bi bi-trash"></i></button>
                           </form>
                           <script>
-                            function preguntar(event) {
+                            function preguntar<?=$id_usuario;?>(event) {
                               event.preventDefault();
                               Swal.fire({
                                 title: 'Eliminar Usuarios',

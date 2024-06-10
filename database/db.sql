@@ -34,5 +34,5 @@ CREATE TABLE usuarios (
 )ENGINE=InnoDB;
 
 INSERT INTO usuarios (nombres,rol_id,email,password,fyh_creacion,estado)
-VALUES ('Johan López', '1','admin@admin.com','12345678','2024-05-16 9:34:10','1');
+VALUES ('Johan López', '1','admin@admin.com','$2y$10$zSJ99LWaKh32rsWib9z9suDd1yFQBDvyNRaq.XMVkl7x9Szk/mdyi','2024-05-16 9:34:10','1');
 

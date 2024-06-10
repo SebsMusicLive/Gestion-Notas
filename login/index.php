@@ -60,6 +60,8 @@ include ('../app/config.php');
           </div>
 
         </form>
+
+        
         <?php
         session_start();
         if (isset($_SESSION['mensaje'])) {
