@@ -36,3 +36,21 @@ CREATE TABLE usuarios (
 INSERT INTO usuarios (nombres,rol_id,email,password,fyh_creacion,estado)
 VALUES ('Johan López', '1','admin@admin.com','$2y$10$zSJ99LWaKh32rsWib9z9suDd1yFQBDvyNRaq.XMVkl7x9Szk/mdyi','2024-05-16 9:34:10','1');
 
+CREATE TABLE configuracion_instituciones (
+    id_config_institucion INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nombre_institucion VARCHAR(255) NOT NULL,
+    logo VARCHAR(255) NULL,
+    direccion VARCHAR(255) NOT NULL,
+    telefono VARCHAR(100) NULL,
+    celular VARCHAR(100) NULL,
+    correo VARCHAR(100) NULL,
+
+    fyh_creacion DATE NULL,
+    fyh_actualizacion DATE NULL,
+    estado VARCHAR(11)
+
+)ENGINE=InnoDB;
+
+INSERT INTO configuracion_instituciones (nombre_institucion,logo,direccion,telefono,celular,correo,fyh_creacion,estado)
+VALUES ('Johan Web School', 'logo.jpg','Los Patios Cl23a#10-82','5847482','3147844269','Johan.ws.edu.co','2024-05-16 9:34:10','1');
+

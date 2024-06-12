@@ -1,9 +1,10 @@
 <?php
 
-include ('../../app/config.php');
-include ('../../admin/layout/parte1.php');
+include ('../../../app/config.php');
+include ('../../../admin/layout/parte1.php');
 
-include ('../../app/controllers/usuarios/listado_de_usuarios.php');
+include('../../../app/controllers/configuraciones/institucion/listado_de_instituciones.php');
+
 
 ?>
 <!-- Content Wrapper. Contains page content -->
@@ -13,7 +14,7 @@ include ('../../app/controllers/usuarios/listado_de_usuarios.php');
   <div class="content">
     <div class="container">
       <div class="row">
-        <h1>Listado de Usuarios</h1>
+        <h1>Listado de Instituciones</h1>
       </div>
       <!-- /.row -->
       <br>
@@ -22,11 +23,11 @@ include ('../../app/controllers/usuarios/listado_de_usuarios.php');
         <div class="col-md-12">
           <div class="card card-outline card-primary">
             <div class="card-header">
-              <h3 class="card-title">Usuarios Registrados</h3>
+              <h3 class="card-title">Instituciones Registradas</h3>
 
               <div class="card-tools">
                 <a href="create.php" class="btn btn-success"><i class="nav-icon fas"><i
-                      class="bi bi-plus-square"></i></i> Crear nuevo usuario</a>
+                      class="bi bi-plus-square"></i></i> Crear nueva institución</a>
               </div>
               <!-- /.card-tools -->
             </div>
@@ -39,13 +40,22 @@ include ('../../app/controllers/usuarios/listado_de_usuarios.php');
                       <center>Nro</center>
                     </th>
                     <th>
-                      <center>Nombre del Usuario</center>
+                      <center>Nombre de la institución</center>
                     </th>
                     <th>
-                      <center>Rol</center>
+                      <center>Logo</center>
                     </th>
                     <th>
-                      <center>Email</center>
+                      <center>Dirección</center>
+                    </th>
+                    <th>
+                      <center>Teléfono</center>
+                    </th>
+                    <th>
+                      <center>Celular</center>
+                    </th>
+                    <th>
+                      <center>Correo Electrónico</center>
                     </th>
                     <th>
                       <center>Fecha de creación</center>
@@ -60,36 +70,39 @@ include ('../../app/controllers/usuarios/listado_de_usuarios.php');
                 </thead>
                 <tbody>
                   <?php
-                  $contador_usuarios = 0;
-                  foreach ($usuarios as $usuario) {
+                  $contador_institucion = 0;
+                  foreach ($instituciones as $institucion) {
                     //echo $nombre_rol = $rol['nombre_rol'];
-                    $id_usuario = $usuario ['id_usuario'];
-                    $contador_usuarios = $contador_usuarios + 1;?>
+                    $id_config_institucion = $institucion ['id_config_institucion'];
+                    $contador_institucion = $contador_institucion + 1;?>
                     <tr>
-                      <td style="text-align:center"><?= $contador_usuarios;?></td>
-                      <td style="text-align:center"><?= $usuario['nombres']; ?></td>
-                      <td style="text-align:center"><?= $usuario['nombre_rol']; ?></td>
-                      <td style="text-align:center"><?= $usuario['email']; ?></td>
-                      <td style="text-align:center"><?= $usuario['fyh_creacion']; ?></td>
-                      <td style="text-align:center"><?= $usuario['estado']; ?></td>
+                      <td style="text-align:center"><?= $contador_institucion;?></td>
+                      <td style="text-align:center"><?= $institucion['nombre_institucion']; ?></td>
+                      <td style="text-align:center"><?= $institucion['logo']; ?></td>
+                      <td style="text-align:center"><?= $institucion['direccion']; ?></td>
+                      <td style="text-align:center"><?= $institucion['telefono']; ?></td>
+                      <td style="text-align:center"><?= $institucion['celular']; ?></td>
+                      <td style="text-align:center"><?= $institucion['correo']; ?></td>
+                      <td style="text-align:center"><?= $institucion['fyh_creacion']; ?></td>
+                      <td style="text-align:center"><?= $institucion['estado']; ?></td>
 
                       <td style="text-align:center">
                         <div class="btn-group" role="group" aria-label="Basic example">
-                          <a type="button" href="show.php?id=<?=$id_usuario;?>" class="btn btn-info btn-sm"><i
+                          <a type="button" href="show.php?id=<?=$id_config_institucion;?>" class="btn btn-info btn-sm"><i
                               class="bi bi-eye"></i></a>
-                          <a type="button" href="edit.php?id=<?=$id_usuario;?>" class="btn btn-success btn-sm"><i
+                          <a type="button" href="edit.php?id=<?=$id_config_institucion;?>" class="btn btn-success btn-sm"><i
                               class="bi bi-pencil"></i></a>
-                          <form action="<?=APP_URL;?>/app/controllers/usuarios/delete.php" onclick="preguntar<?=$id_usuario;?>(event)" method="post" id="miFormulario<?=$id_usuario;?>">
-                            <input type="text" name="id_usuario" value="<?=$id_usuario;?>" hidden>
+                          <form action="<?=APP_URL;?>/app/controllers/usuarios/delete.php" onclick="preguntar<?=$id_config_institucion;?>(event)" method="post" id="miFormulario<?=$id_config_institucion;?>">
+                            <input type="text" name="id_config_institucion" value="<?=$id_config_institucion;?>" hidden>
                             <button type="submit" class="btn btn-danger btn-sm" style="border-radius:0px 5px 5px 0px"><i
                                 class="bi bi-trash"></i></button>
                           </form>
                           <script>
-                            function preguntar<?=$id_usuario;?>(event) {
+                            function preguntar<?=$id_config_institucion;?>(event) {
                               event.preventDefault();
                               Swal.fire({
-                                title: 'Eliminar Usuarios',
-                                text: '¿Desea eliminar este Usuarios?',
+                                title: 'Eliminar institución',
+                                text: '¿Desea eliminar esta institución?',
                                 icon: 'question',
                                 showDenyButton: true,
                                 confirmButtonText: 'Eliminar',
@@ -98,7 +111,7 @@ include ('../../app/controllers/usuarios/listado_de_usuarios.php');
                                 denyButtonText: 'Cancelar',
                               }).then((result) => {
                                 if (result.isConfirmed) {
-                                  var form = $('#miFormulario<?=$id_usuario;?>');
+                                  var form = $('#miFormulario<?=$id_config_institucion;?>');
                                   form.submit();
                                 }
                               });
@@ -127,8 +140,8 @@ include ('../../app/controllers/usuarios/listado_de_usuarios.php');
 
 <?php
 
-include ("../../admin/layout/parte2.php");
-include ('../../layout/mensajes.php');
+include ("../../../admin/layout/parte2.php");
+include ('../../../layout/mensajes.php');
 ?>
 
 
@@ -139,12 +152,12 @@ include ('../../layout/mensajes.php');
       "pageLength": 5,
       "language": {
         "emptyTable": "No hay información",
-        "info": "Mostrando _START_ a _END_ de _TOTAL_ Usuarios",
-        "infoEmpty": "Mostrando 0 a 0 de 0 Usuarios",
-        "infoFiltered": "(Filtrado de _MAX_ total Usuarios)",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Instituciones",
+        "infoEmpty": "Mostrando 0 a 0 de 0 Instituciones",
+        "infoFiltered": "(Filtrado de _MAX_ total Instituciones)",
         "infoPostFix": "",
         "thousands": ",",
-        "lengthMenu": "Mostrar _MENU_ Usuarios",
+        "lengthMenu": "Mostrar _MENU_ Instituciones",
         "loadingRecords": "Cargando...",
         "processing": "Procesando...",
         "search": "Buscador",
