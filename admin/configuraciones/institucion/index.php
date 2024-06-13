@@ -78,7 +78,9 @@ include('../../../app/controllers/configuraciones/institucion/listado_de_institu
                     <tr>
                       <td style="text-align:center"><?= $contador_institucion;?></td>
                       <td style="text-align:center"><?= $institucion['nombre_institucion']; ?></td>
-                      <td style="text-align:center"><?= $institucion['logo']; ?></td>
+                      <td style="text-align:center">
+                        <img src="<?=APP_URL."/public/img/configuracion/".$institucion["logo"];?>" alt="" width="100px">
+                      </td>
                       <td style="text-align:center"><?= $institucion['direccion']; ?></td>
                       <td style="text-align:center"><?= $institucion['telefono']; ?></td>
                       <td style="text-align:center"><?= $institucion['celular']; ?></td>
