@@ -94,7 +94,7 @@ include('../../../app/controllers/configuraciones/institucion/listado_de_institu
                               class="bi bi-eye"></i></a>
                           <a type="button" href="edit.php?id=<?=$id_config_institucion;?>" class="btn btn-success btn-sm"><i
                               class="bi bi-pencil"></i></a>
-                          <form action="<?=APP_URL;?>/app/controllers/usuarios/delete.php" onclick="preguntar<?=$id_config_institucion;?>(event)" method="post" id="miFormulario<?=$id_config_institucion;?>">
+                          <form action="<?=APP_URL;?>/app/controllers/configuraciones/institucion/delete.php" onclick="preguntar<?=$id_config_institucion;?>(event)" method="post" id="miFormulario<?=$id_config_institucion;?>">
                             <input type="text" name="id_config_institucion" value="<?=$id_config_institucion;?>" hidden>
                             <button type="submit" class="btn btn-danger btn-sm" style="border-radius:0px 5px 5px 0px"><i
                                 class="bi bi-trash"></i></button>
