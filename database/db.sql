@@ -2,8 +2,8 @@ CREATE TABLE roles (
     id_rol INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nombre_rol VARCHAR(255) NOT NULL UNIQUE KEY,
 
-    fyh_creacion DATE NULL,
-    fyh_actualizacion DATE NULL,
+    fyh_creacion DATETIME NULL,
+    fyh_actualizacion DATETIME NULL,
     estado VARCHAR(11)
 )ENGINE=InnoDB;
 
@@ -26,8 +26,8 @@ CREATE TABLE usuarios (
     email VARCHAR(255) NOT NULL UNIQUE KEY,
     password TEXT NOT NULL,
 
-    fyh_creacion DATE NULL,
-    fyh_actualizacion DATE NULL,
+    fyh_creacion DATETIME NULL,
+    fyh_actualizacion DATETIME NULL,
     estado VARCHAR(11),
 
     FOREIGN KEY(rol_id) REFERENCES roles(id_rol) ON DELETE NO ACTION ON UPDATE CASCADE
@@ -45,8 +45,8 @@ CREATE TABLE configuracion_instituciones (
     celular VARCHAR(100) NULL,
     correo VARCHAR(100) NULL,
 
-    fyh_creacion DATE NULL,
-    fyh_actualizacion DATE NULL,
+    fyh_creacion DATETIME NULL,
+    fyh_actualizacion DATETIME NULL,
     estado VARCHAR(11)
 
 )ENGINE=InnoDB;
@@ -58,8 +58,8 @@ CREATE TABLE gestiones (
     id_gestion INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     gestion VARCHAR(255) NOT NULL,
 
-    fyh_creacion DATE NULL,
-    fyh_actualizacion DATE NULL,
+    fyh_creacion DATETIME NULL,
+    fyh_actualizacion DATETIME NULL,
     estado VARCHAR(11)
 
 )ENGINE=InnoDB;
