@@ -30,6 +30,18 @@ include ('../../admin/layout/parte1.php');
                     </div>
                     <!-- /.info-box -->
                 </div>
+                <div class="col-md-4 col-sm-6 col-12">
+                    <div class="info-box">
+                        <span class="info-box-icon bg-info"><i class="bi bi-calendar-range"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text"><b>Gestión educativa</b></span>
+                            <a href="gestion" class="btn btn-info btn-sm">Configurar</a>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
             </div>
         </div><!-- /.container-fluid -->
     </div>

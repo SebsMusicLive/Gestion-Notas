@@ -54,3 +54,15 @@ CREATE TABLE configuracion_instituciones (
 INSERT INTO configuracion_instituciones (nombre_institucion,logo,direccion,telefono,celular,correo,fyh_creacion,estado)
 VALUES ('Johan Web School', 'logo.jpg','Los Patios Cl23a#10-82','5847482','3147844269','Johan.ws.edu.co','2024-05-16 9:34:10','1');
 
+CREATE TABLE gestiones (
+    id_gestion INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    gestion VARCHAR(255) NOT NULL,
+
+    fyh_creacion DATE NULL,
+    fyh_actualizacion DATE NULL,
+    estado VARCHAR(11)
+
+)ENGINE=InnoDB;
+
+INSERT INTO gestiones (gestion,fyh_creacion,estado)
+VALUES ('GESTION 2024','2024-05-16 9:34:10','1');
