@@ -1,10 +1,9 @@
 <?php
 
-include ('../../../app/config.php');
-include ('../../../admin/layout/parte1.php');
+include ('../../app/config.php');
+include ('../../admin/layout/parte1.php');
 
-include('../../../app/controllers/configuraciones/gestion/listado_de_gestiones.php');
-
+include ('../../app/controllers/grados/listado_de_grados.php');
 
 ?>
 <!-- Content Wrapper. Contains page content -->
@@ -14,7 +13,7 @@ include('../../../app/controllers/configuraciones/gestion/listado_de_gestiones.p
   <div class="content">
     <div class="container">
       <div class="row">
-        <h1>Listado de gestiones educativas</h1>
+        <h1>Listado de Grados</h1>
       </div>
       <!-- /.row -->
       <br>
@@ -23,11 +22,11 @@ include('../../../app/controllers/configuraciones/gestion/listado_de_gestiones.p
         <div class="col-md-12">
           <div class="card card-outline card-primary">
             <div class="card-header">
-              <h3 class="card-title">Gestiones registradas</h3>
+              <h3 class="card-title">Grados Registrados</h3>
 
               <div class="card-tools">
                 <a href="create.php" class="btn btn-success"><i class="nav-icon fas"><i
-                      class="bi bi-plus-square"></i></i> Crear nueva gestión</a>
+                      class="bi bi-plus-square"></i></i> Crear nuevo Grado</a>
               </div>
               <!-- /.card-tools -->
             </div>
@@ -40,10 +39,13 @@ include('../../../app/controllers/configuraciones/gestion/listado_de_gestiones.p
                       <center>Nro</center>
                     </th>
                     <th>
-                      <center>Gestión</center>
+                      <center>Gestión educativa</center>
                     </th>
                     <th>
-                      <center>Fecha de creación</center>
+                      <center>Grado</center>
+                    </th>
+                    <th>
+                      <center>Jornada</center>
                     </th>
                     <th>
                       <center>Estado</center>
@@ -55,46 +57,41 @@ include('../../../app/controllers/configuraciones/gestion/listado_de_gestiones.p
                 </thead>
                 <tbody>
                   <?php
-                  $contador_gestion = 0;
-                  foreach ($gestiones as $gestion) {
-                    //echo $nombre_rol = $rol['nombre_rol'];
-                    $id_gestion = $gestion ['id_gestion'];
-                    $contador_gestion = $contador_gestion + 1;?>
+                  $contador_grados = 0;
+                  foreach ($grados as $grado) {
+                    //echo $nombre_rol = $grado['nombre_rol'];
+                    $contador_grados = $contador_grados + 1;
+                    $id_grado = $grado['id_grado']; ?>
                     <tr>
-                      <td style="text-align:center"><?= $contador_gestion;?></td>
-                      <td style="text-align:center"><?= $gestion['gestion']; ?></td>
-                      <td style="text-align:center"><?= $gestion['fyh_creacion']; ?></td>
-                      <td style="text-align:center">
-                    <?php
-                    if($gestion['estado'] == 1){?>
-                    <button class="btn btn-success btn-sm" style="border-radius: 10%;">ACTIVO</button>
-                    <?php    
-                    }
-                    else{?>
-                    <button class="btn btn-danger btn-sm" style="border-radius: 10%;">INACTIVO</button>
-
-                    <?php 
-
-                    }
+                      <td style="text-align:center"><?= $contador_grados ?></td>
+                      <td style="text-align:center"><?= $grado['gestion']; ?></td>
+                      <td style="text-align:center"><?= $grado['grado']; ?></td>
+                      <td style="text-align:center"><?= $grado['jornada']; ?></td>
+                      <td style="text-align:center"><?php 
+                      if($grado['estado'] == 1){?>
+                        <button class="btn btn-success btn-sm" style="border-radius: 10%;"> ACTIVO </button>
+                      <?php
+                      }else{?>
+                      <button class="btn btn-success btn-sm" style="border-radius: 10%;"> INACTIVO </button>
+                    <?php }
                       ?></td>
-
                       <td style="text-align:center">
                         <div class="btn-group" role="group" aria-label="Basic example">
-                          <a type="button" href="show.php?id=<?=$id_gestion;?>" class="btn btn-info btn-sm"><i
+                          <a type="button" href="show.php?id=<?=$id_grado;?>" class="btn btn-info btn-sm"><i
                               class="bi bi-eye"></i></a>
-                          <a type="button" href="edit.php?id=<?=$id_gestion;?>" class="btn btn-success btn-sm"><i
+                          <a type="button" href="edit.php?id=<?=$id_grado;?>" class="btn btn-success btn-sm"><i
                               class="bi bi-pencil"></i></a>
-                          <!--<form action="<?=APP_URL;?>/app/controllers/configuraciones/institucion/delete.php" onclick="preguntar<?=$id_gestion;?>(event)" method="post" id="miFormulario<?=$id_gestion;?>">
-                            <input type="text" name="id_gestion" value="<?=$id_gestion;?>" hidden>
+                          <form action="<?=APP_URL;?>/app/controllers/grados/delete.php" onclick="preguntar<?=$id_grado;?>(event)" method="post" id="miFormulario<?=$id_grado;?>">
+                            <input type="text" name="id_grado" value="<?=$id_grado;?>" hidden>
                             <button type="submit" class="btn btn-danger btn-sm" style="border-radius:0px 5px 5px 0px"><i
                                 class="bi bi-trash"></i></button>
                           </form>
                           <script>
-                            function preguntar<?=$id_gestion;?>(event) {
+                            function preguntar<?=$id_grado;?>(event) {
                               event.preventDefault();
                               Swal.fire({
-                                title: 'Eliminar gestión',
-                                text: '¿Desea eliminar esta gestión?',
+                                title: 'Eliminar grado',
+                                text: '¿Desea eliminar este grado?',
                                 icon: 'question',
                                 showDenyButton: true,
                                 confirmButtonText: 'Eliminar',
@@ -103,12 +100,12 @@ include('../../../app/controllers/configuraciones/gestion/listado_de_gestiones.p
                                 denyButtonText: 'Cancelar',
                               }).then((result) => {
                                 if (result.isConfirmed) {
-                                  var form = $('#miFormulario<?=$id_gestion;?>');
+                                  var form = $('#miFormulario<?=$id_grado;?>');
                                   form.submit();
                                 }
                               });
                             }
-                          </script>-->
+                          </script>
                         </div>
                       </td>
                     </tr>
@@ -132,8 +129,8 @@ include('../../../app/controllers/configuraciones/gestion/listado_de_gestiones.p
 
 <?php
 
-include ("../../../admin/layout/parte2.php");
-include ('../../../layout/mensajes.php');
+include ("../../admin/layout/parte2.php");
+include ('../../layout/mensajes.php');
 ?>
 
 
@@ -144,12 +141,12 @@ include ('../../../layout/mensajes.php');
       "pageLength": 5,
       "language": {
         "emptyTable": "No hay información",
-        "info": "Mostrando _START_ a _END_ de _TOTAL_ Gestiones",
-        "infoEmpty": "Mostrando 0 a 0 de 0 Gestiones",
-        "infoFiltered": "(Filtrado de _MAX_ total Gestiones)",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Grados",
+        "infoEmpty": "Mostrando 0 a 0 de 0 Grados",
+        "infoFiltered": "(Filtrado de _MAX_ total Grados)",
         "infoPostFix": "",
         "thousands": ",",
-        "lengthMenu": "Mostrar _MENU_ Gestiones",
+        "lengthMenu": "Mostrar _MENU_ Grados",
         "loadingRecords": "Cargando...",
         "processing": "Procesando...",
         "search": "Buscador",

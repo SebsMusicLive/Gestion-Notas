@@ -66,3 +66,19 @@ CREATE TABLE gestiones (
 
 INSERT INTO gestiones (gestion,fyh_creacion,estado)
 VALUES ('GESTION 2024','2024-05-16 9:34:10','1');
+
+CREATE TABLE grados (
+    id_grado INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    gestion_id INT(11) NOT NULL,
+    grado VARCHAR(255) NOT NULL,
+    jornada VARCHAR(255) NOT NULL,
+
+    fyh_creacion DATETIME NULL,
+    fyh_actualizacion DATETIME NULL,
+    estado VARCHAR(11),
+
+    FOREIGN KEY(gestion_id) REFERENCES gestiones(id_gestion) ON DELETE NO ACTION ON UPDATE CASCADE
+)ENGINE=InnoDB;
+
+INSERT INTO grados (gestion_id,grado,jornada,fyh_creacion,estado)
+VALUES ('1', 'INICIAL','MAÑANA','2024-05-16 9:34:10','1');
