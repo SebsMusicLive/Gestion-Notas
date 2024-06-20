@@ -4,7 +4,7 @@ include('../app/config.php');
 include('../admin/layout/parte1.php');
 include('../app/controllers/roles/listado_de_roles.php');
 include('../app/controllers/usuarios/listado_de_usuarios.php');
-include('../app/controllers/grados/listado_de_grados.php');
+include('../app/controllers/niveles/listado_de_niveles.php');
 
 ?>
   <!-- Content Wrapper. Contains page content -->
@@ -69,19 +69,19 @@ include('../app/controllers/grados/listado_de_grados.php');
             <div class="small-box bg-primary">
               <div class="inner">
                 <?php
-                $contador_grados = 0;
+                $contador_niveles = 0;
 
-                foreach($grados as $grado) { 
-                  $contador_grados = $contador_grados+1;
+                foreach($niveles as $nivel) { 
+                  $contador_niveles = $contador_niveles+1;
                 }?>
-                <h3><?=$contador_grados;?></h3>
+                <h3><?=$contador_niveles;?></h3>
 
-                <p>Grados registrados</p>
+                <p>Niveles registrados</p>
               </div>
               <div class="icon">
                 <i class="fas"><i class="bi bi-bookshelf"></i></i>
               </div>
-              <a href="<?= APP_URL;?>admin/grados" class="small-box-footer">
+              <a href="<?= APP_URL;?>admin/niveles" class="small-box-footer">
                 Más información <i class="fas fa-arrow-circle-right"></i>
               </a>
             </div>

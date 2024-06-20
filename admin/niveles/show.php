@@ -1,10 +1,10 @@
 <?php
-$id_grado = $_GET['id'];
+$id_nivel = $_GET['id'];
 
 include ('../../app/config.php');
 include ('../../admin/layout/parte1.php');
 
-include('../../app/controllers/grados/datos_del_grado.php');
+include('../../app/controllers/niveles/datos_del_nivel.php');
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -13,7 +13,7 @@ include('../../app/controllers/grados/datos_del_grado.php');
   <div class="content">
     <div class="container">
       <div class="row">
-        <h1>Grado: <?=$grado;?></h1>
+        <h1>Nivel: <?=$nivel;?></h1>
       </div>
       <!-- /.row -->
       <br>
@@ -28,7 +28,7 @@ include('../../app/controllers/grados/datos_del_grado.php');
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <form action="<?=APP_URL;?>/app/controllers/grados/create.php" method="post">
+                <form action="<?=APP_URL;?>/app/controllers/niveles/create.php" method="post">
                     <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -38,8 +38,8 @@ include('../../app/controllers/grados/datos_del_grado.php');
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="">Grado</label>
-                            <input type="text" class="form-control" value="<?= $grado;?>" disabled>
+                            <label for="">Nivel</label>
+                            <input type="text" class="form-control" value="<?= $nivel;?>" disabled>
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@ include('../../app/controllers/grados/datos_del_grado.php');
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <a href="<?=APP_URL;?>/admin/grados" class="btn btn-secondary">Volver</a>
+                            <a href="<?=APP_URL;?>/admin/niveles" class="btn btn-secondary">Volver</a>
                         </div>
                     </div>
                 </div>

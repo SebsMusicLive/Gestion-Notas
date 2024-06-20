@@ -221,15 +221,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="#" class="nav-link active">
               <i class="nav-icon fas"><i class="bi bi-bookshelf"></i></i>
               <p>
-                Grados
+                Niveles
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=APP_URL;?>/admin/grados" class="nav-link">
+                <a href="<?=APP_URL;?>admin/niveles" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Listado de grados</p>
+                  <p>Listado de niveles</p>
                 </a>
               </li>
             </ul>

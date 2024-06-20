@@ -3,7 +3,7 @@
 include ('../../app/config.php');
 include ('../../admin/layout/parte1.php');
 
-include ('../../app/controllers/grados/listado_de_grados.php');
+include ('../../app/controllers/niveles/listado_de_niveles.php');
 
 ?>
 <!-- Content Wrapper. Contains page content -->
@@ -13,7 +13,7 @@ include ('../../app/controllers/grados/listado_de_grados.php');
   <div class="content">
     <div class="container">
       <div class="row">
-        <h1>Listado de Grados</h1>
+        <h1>Listado de Niveles</h1>
       </div>
       <!-- /.row -->
       <br>
@@ -22,11 +22,11 @@ include ('../../app/controllers/grados/listado_de_grados.php');
         <div class="col-md-12">
           <div class="card card-outline card-primary">
             <div class="card-header">
-              <h3 class="card-title">Grados Registrados</h3>
+              <h3 class="card-title">Niveles Registrados</h3>
 
               <div class="card-tools">
                 <a href="create.php" class="btn btn-success"><i class="nav-icon fas"><i
-                      class="bi bi-plus-square"></i></i> Crear nuevo Grado</a>
+                      class="bi bi-plus-square"></i></i> Crear nuevo nivel</a>
               </div>
               <!-- /.card-tools -->
             </div>
@@ -42,7 +42,7 @@ include ('../../app/controllers/grados/listado_de_grados.php');
                       <center>Gestión educativa</center>
                     </th>
                     <th>
-                      <center>Grado</center>
+                      <center>Nivel</center>
                     </th>
                     <th>
                       <center>Jornada</center>
@@ -57,18 +57,18 @@ include ('../../app/controllers/grados/listado_de_grados.php');
                 </thead>
                 <tbody>
                   <?php
-                  $contador_grados = 0;
-                  foreach ($grados as $grado) {
-                    //echo $nombre_rol = $grado['nombre_rol'];
-                    $contador_grados = $contador_grados + 1;
-                    $id_grado = $grado['id_grado']; ?>
+                  $contador_niveles = 0;
+                  foreach ($niveles as $nivel) {
+                    //echo $nombre_rol = $nivel['nombre_rol'];
+                    $contador_niveles = $contador_niveles + 1;
+                    $id_nivel = $nivel['id_nivel']; ?>
                     <tr>
-                      <td style="text-align:center"><?= $contador_grados ?></td>
-                      <td style="text-align:center"><?= $grado['gestion']; ?></td>
-                      <td style="text-align:center"><?= $grado['grado']; ?></td>
-                      <td style="text-align:center"><?= $grado['jornada']; ?></td>
+                      <td style="text-align:center"><?= $contador_niveles ?></td>
+                      <td style="text-align:center"><?= $nivel['gestion']; ?></td>
+                      <td style="text-align:center"><?= $nivel['nivel']; ?></td>
+                      <td style="text-align:center"><?= $nivel['jornada']; ?></td>
                       <td style="text-align:center"><?php 
-                      if($grado['estado'] == 1){?>
+                      if($nivel['estado'] == 1){?>
                         <button class="btn btn-success btn-sm" style="border-radius: 10%;"> ACTIVO </button>
                       <?php
                       }else{?>
@@ -77,21 +77,21 @@ include ('../../app/controllers/grados/listado_de_grados.php');
                       ?></td>
                       <td style="text-align:center">
                         <div class="btn-group" role="group" aria-label="Basic example">
-                          <a type="button" href="show.php?id=<?=$id_grado;?>" class="btn btn-info btn-sm"><i
+                          <a type="button" href="show.php?id=<?=$id_nivel;?>" class="btn btn-info btn-sm"><i
                               class="bi bi-eye"></i></a>
-                          <a type="button" href="edit.php?id=<?=$id_grado;?>" class="btn btn-success btn-sm"><i
+                          <a type="button" href="edit.php?id=<?=$id_nivel;?>" class="btn btn-success btn-sm"><i
                               class="bi bi-pencil"></i></a>
-                          <form action="<?=APP_URL;?>/app/controllers/grados/delete.php" onclick="preguntar<?=$id_grado;?>(event)" method="post" id="miFormulario<?=$id_grado;?>">
-                            <input type="text" name="id_grado" value="<?=$id_grado;?>" hidden>
+                          <form action="<?=APP_URL;?>/app/controllers/niveles/delete.php" onclick="preguntar<?=$id_nivel;?>(event)" method="post" id="miFormulario<?=$id_nivel;?>">
+                            <input type="text" name="id_nivel" value="<?=$id_nivel;?>" hidden>
                             <button type="submit" class="btn btn-danger btn-sm" style="border-radius:0px 5px 5px 0px"><i
                                 class="bi bi-trash"></i></button>
                           </form>
                           <script>
-                            function preguntar<?=$id_grado;?>(event) {
+                            function preguntar<?=$id_nivel;?>(event) {
                               event.preventDefault();
                               Swal.fire({
-                                title: 'Eliminar grado',
-                                text: '¿Desea eliminar este grado?',
+                                title: 'Eliminar nivel',
+                                text: '¿Desea eliminar este nivel?',
                                 icon: 'question',
                                 showDenyButton: true,
                                 confirmButtonText: 'Eliminar',
@@ -100,7 +100,7 @@ include ('../../app/controllers/grados/listado_de_grados.php');
                                 denyButtonText: 'Cancelar',
                               }).then((result) => {
                                 if (result.isConfirmed) {
-                                  var form = $('#miFormulario<?=$id_grado;?>');
+                                  var form = $('#miFormulario<?=$id_nivel;?>');
                                   form.submit();
                                 }
                               });
@@ -141,12 +141,12 @@ include ('../../layout/mensajes.php');
       "pageLength": 5,
       "language": {
         "emptyTable": "No hay información",
-        "info": "Mostrando _START_ a _END_ de _TOTAL_ Grados",
-        "infoEmpty": "Mostrando 0 a 0 de 0 Grados",
-        "infoFiltered": "(Filtrado de _MAX_ total Grados)",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Niveles",
+        "infoEmpty": "Mostrando 0 a 0 de 0 Niveles",
+        "infoFiltered": "(Filtrado de _MAX_ total Niveles)",
         "infoPostFix": "",
         "thousands": ",",
-        "lengthMenu": "Mostrar _MENU_ Grados",
+        "lengthMenu": "Mostrar _MENU_ Niveles",
         "loadingRecords": "Cargando...",
         "processing": "Procesando...",
         "search": "Buscador",
