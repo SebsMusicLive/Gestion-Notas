@@ -56,9 +56,7 @@ include('../../app/controllers/configuraciones/gestion/listado_de_gestiones.php'
                         <div class="form-group">
                             <label for="">Grados</label>
                             <select name="nivel" id="" class="form-control">
-                                <option value="PREJARDIN" <?php if($nivel == 'PREJARDIN'){?> selected <?php } ?>>PRE JARDIN</option>
-                                <option value="JARDIN" <?php if($nivel == 'JARDIN'){?> selected <?php } ?>>JARDIN</option>
-                                <option value="TRANSICION" <?php if($nivel == 'TRANSICION'){?> selected <?php } ?>>TRANSICIÓN</option>
+                                <option value="INICIAL" <?php if($nivel == 'INICIAL'){?> selected <?php } ?>>INICIAL</option>
                                 <option value="PRIMARIA" <?php if($nivel == 'PRIMARIA'){?> selected <?php } ?>>PRIMARIA</option>
                                 <option value="SECUNDARIA" <?php if($nivel == 'SECUNDARIA'){?> selected <?php } ?>>SECUNDARIA</option>
                             </select>
