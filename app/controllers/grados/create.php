@@ -29,4 +29,3 @@ if ($sentencia->execute()) {
 }
 ?>
 
-?>
