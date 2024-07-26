@@ -1,6 +1,6 @@
 <?php
 
-include ('../../../app/config.php');
+include '../../../app/config.php';
 
 $nombres = $_POST['nombres'];
 $rol_id = $_POST['rol_id'];

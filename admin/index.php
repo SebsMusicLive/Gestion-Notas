@@ -1,11 +1,14 @@
 <?php
 
-include('../app/config.php');
-include('../admin/layout/parte1.php');
-include('../app/controllers/roles/listado_de_roles.php');
-include('../app/controllers/usuarios/listado_de_usuarios.php');
-include('../app/controllers/niveles/listado_de_niveles.php');
-include('../app/controllers/grados/listado_de_grados.php');
+include '../app/config.php';
+include '../admin/layout/parte1.php';
+include '../app/controllers/roles/listado_de_roles.php';
+include '../app/controllers/usuarios/listado_de_usuarios.php';
+include '../app/controllers/niveles/listado_de_niveles.php';
+include '../app/controllers/grados/listado_de_grados.php';
+include '../app/controllers/materias/listado_de_materias.php';
+include '../app/controllers/administrativos/listado_de_administrativos.php';
+
 
 ?>
   <!-- Content Wrapper. Contains page content -->
@@ -103,7 +106,7 @@ include('../app/controllers/grados/listado_de_grados.php');
                 <p>Grados registrados</p>
               </div>
               <div class="icon">
-                <i class="fas"><i class="bi bi-bookshelf"></i></i>
+                <i class="fas"><i class="bi bi-bar-chart-steps"></i></i>
               </div>
               <a href="<?= APP_URL;?>admin/grados" class="small-box-footer">
                 Más información <i class="fas fa-arrow-circle-right"></i>
@@ -111,6 +114,53 @@ include('../app/controllers/grados/listado_de_grados.php');
             </div>
           </div>
          </div>
+         <div class="row">
+         <div class="col-lg-3 col-6">
+            <!-- small card -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <?php
+                $contador_de_materias = 0;
+
+                foreach($materias as $materia) { 
+                  $contador_de_materias = $contador_de_materias+1;
+                }?>
+                <h3><?=$contador_de_materias;?></h3>
+
+                <p>Materias registradas</p>
+              </div>
+              <div class="icon">
+                <i class="fas"><i class="bi bi-journal-text"></i></i>
+              </div>
+              <a href="<?= APP_URL;?>admin/materias" class="small-box-footer">
+                Más información <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6">
+            <!-- small card -->
+            <div class="small-box bg-default">
+              <div class="inner">
+                <?php
+                $contador_de_administrativos = 0;
+
+                foreach($administrativos as $administrativo) { 
+                  $contador_de_administrativos = $contador_de_administrativos+1;
+                }?>
+                <h3><?=$contador_de_administrativos;?></h3>
+
+                <p>Administrativos registrados</p>
+              </div>
+              <div class="icon">
+                <i class="fas"><i class="bi bi-person-lines-fill"></i></i>
+              </div>
+              <a href="<?= APP_URL;?>admin/administrativos" class="small-box-footer">
+                Más información <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+         </div>
+         
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
