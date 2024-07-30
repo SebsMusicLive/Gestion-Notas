@@ -97,6 +97,8 @@ VALUES ('1','2024-05-16 9:34:10','1');
 CREATE TABLE docentes (
     id_docente                  INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     persona_id                  INT(11) NOT NULL,
+    especialidad VARCHAR(255) NOT NULL,
+    antiguedad VARCHAR(255) NOT NULL,
 
     fyh_creacion DATETIME NULL,
     fyh_actualizacion DATETIME NULL,
