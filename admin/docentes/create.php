@@ -39,7 +39,7 @@ include '../../app/controllers/docentes/listado_de_docentes.php'
                                                     <?php
                                                     foreach ($roles as $rol) {
                                                     ?>
-                                                        <option value="<?= $rol['id_rol']; ?>"<?= $rol['nombre_rol']  == "DOCENTE"? "selected" : " "?> disabled><?= $rol['nombre_rol']; ?>
+                                                        <option value="<?= $rol['id_rol']; ?>"<?= $rol['nombre_rol']  == "DOCENTE"? "selected" : " "?>><?= $rol['nombre_rol']; ?>
                                                         </option>
                                                     <?php
                                                     }
@@ -119,7 +119,7 @@ include '../../app/controllers/docentes/listado_de_docentes.php'
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-success"><i class="bi bi-floppy"></i>
-                                                Guardar usuario</button>
+                                                Guardar docente</button>
                                             <a href="<?= APP_URL; ?>admin/docentes" class="btn btn-secondary">Cancelar</a>
                                         </div>
                                     </div>

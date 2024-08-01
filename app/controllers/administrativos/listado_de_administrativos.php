@@ -8,3 +8,4 @@ $sql_administrativos = "SELECT * FROM usuarios AS usu INNER JOIN roles AS rol ON
 $query_administrativos = $pdo->prepare($sql_administrativos);
 $query_administrativos->execute();
 $administrativos = $query_administrativos->fetchAll(PDO::FETCH_ASSOC);
+?>
